@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin=" anonymous">
+    <meta name="Description" content="." />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .head {
+        padding: 6px 0 6px 0;
+        text-align: center;
+        background-image: url(img/b1.gif);
+        background-size: fill;
+      }
+
+      .head .btn {
+        font-size: 14px;
+        padding: 2px 5px 2px 5px;
+        font-weight: 600;
+        text-transform: uppercase;
+        animation: text-color-change 10s infinite;
+      }
+
+      /* @keyframes text-color-change {
+    0% {
+        background-color: rgb(255, 191, 0);
+        border-color: rgb(255, 191, 0);
+    }
+
+    33% {
+        background-color: rgb(22, 160, 123);
+        border-color: rgb(22, 160, 123);
+    }
+
+    66% {
+        background-color: rgb(0, 140, 255);
+        border-color: rgb(0, 140, 255);
+    }
+
+    100% {
+        background-color: rgb(255, 191, 0);
+        border-color: rgb(255, 191, 0);
+    }
+} */
+      .head .btn:focus {
+        box-shadow: none;
+      }
+
+      .navbar {
+        position: relative;
+        transition: top 0.3s;
+        background-color: rgb(52, 52, 52);
+      }
+
+      .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .konten {
+        display: none;
+      }
+
+      .konten.active {
+        display: block;
+      }
+
+      .icon {
+        font-size: 13px;
+        display: inline-block;
+        transition: transform 0.10s ease;
+      }
+
+      .icon.up {
+        transform: rotate(-180deg);
+      }
+
+      .navbar .container {
+        max-width: 340px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+
+      .navbar .container {
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+
+      .navbar .container .navbar-b {
+        background: none;
+        border: none;
+        padding: 4px 14px 4px 14px;
+        font: inherit;
+        cursor: pointer;
+        color: white;
+        border-radius: 4px;
+      }
+
+      .navbar .container .b1 {
+        background-color: rgb(239, 179, 0);
+      }
+
+      .navbar .container .b1:hover {
+        background-color: rgb(254, 193, 9);
+      }
+
+      .navbar .container .b2 {
+        background-color: rgb(22, 160, 123);
+      }
+
+      .navbar .container .b2:hover {
+        background-color: rgb(11, 185, 139);
+      }
+
+      .navbar .container .b3 {
+        background-color: rgb(0, 117, 213);
+      }
+
+      .navbar .container .b3:hover {
+        background-color: rgb(0, 133, 242);
+      }
+
+      /* ========= konten 1 ======== */
+      .container .row {
+        padding-top: 13px;
+        padding-bottom: 10px;
+        border-radius: 3px;
+      }
+
+      .container .row .main {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px
+      }
+
+      @media(max-width: 768px) {
+        .container .row .main {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .container .row .main .content:hover {
+        background-color: rgb(243, 77, 65);
+      }
+
+      .container .row .main .content .gam {
+        padding-top: 2px;
+        width: 98%;
+      }
+
+      .container .row .main .content .gam .img {
+        width: 100%;
+        height: auto;
+      }
+
+      /* ======= konten2 ======= */
+      .container .row2 {
+        padding-top: 13px;
+        padding-bottom: 10px;
+      }
+
+      .container .row2 .main2 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 7px
+      }
+
+      @media(max-width: 768px) {
+        .container .row2 .main2 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .container .row2 .main2 .content {
+        width: 100%;
+        height: auto;
+        border: 2px solid rgb(44, 167, 113);
+      }
+
+      .container .row2 .main2 .content .gam {
+        width: 100%;
+      }
+
+      .container .row2 .main2 .content .gam .img {
+        width: 100%;
+      }
+
+      /* ======== konten3 ======== */
+      .container .row3 {
+        padding-top: 13px;
+        padding-bottom: 10px;
+        border-radius: 3px;
+        color: white;
+      }
+
+      .container .row3 .main3 {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .container .row3 .main3 .content3 .head3 {
+        background-color: #22252e;
+        max-width: 550px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        padding-bottom: 2px;
+        padding-top: 7px;
+        border-radius: 10px;
+        color: white;
+        border: 2px solid transparent;
+        animation: borderAnimation 3s linear infinite;
+      }
+
+      /* .container .row3 .main3 .content3 .head2 {
+    animation: vibrate 0.20s infinite alternate;
+} */
+      @keyframes borderAnimation {
+        0% {
+          border-color: rgb(255, 191, 0);
+        }
+
+        33% {
+          border-color: rgb(22, 160, 123);
+        }
+
+        66% {
+          border-color: rgb(0, 140, 255);
+        }
+
+        100% {
+          border-color: rgb(255, 191, 0);
+        }
+      }
+
+      @keyframes vibrate {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        50% {
+          transform: rotate(-0.50deg);
+        }
+
+        100% {
+          transform: rotate(0.50deg);
+        }
+      }
+
+      .container .row3 .main3 .content3 .qr1 {
+        /* background-color: rgb(143, 143, 143); */
+        background-color: #22252e;
+        /* background-color: rgb(245, 245, 245); */
+        padding-bottom: 20px;
+        padding-top: 10px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        max-width: 550px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container .row3 .main3 .content3 .qr1 .p1 {
+        /* margin-top: 25px; */
+        margin-bottom: 5px;
+        font-size: 16px;
+        font-weight: 550;
+        padding-bottom: 5px;
+        border-bottom: 1px solid white;
+      }
+
+      .container .row3 .main3 .content3 .qr1 .p2 {
+        margin-bottom: 5px;
+        margin-top: 5px;
+        font-size: 13px;
+      }
+
+      .container .row3 .main3 .content3 .qr1 .p3 {
+        font-size: 13px;
+        margin-top: 15px;
+        margin-bottom: 0;
+      }
+
+      .container .row3 .main3 .content3 .qr1 .gam3 {
+        width: 60%;
+        border: 1px solid rgb(238, 238, 238);
+      }
+
+      .container .row3 .main3 .content3 .qr1 .log {
+        background-color: rgb(46, 46, 46);
+        max-width: 300px;
+        padding: 10px 0 10px 0;
+        border-radius: 10px;
+      }
+
+      .container .row3 .main3 .content3 .qr1 .log1 {
+        margin-top: 20px;
+      }
+
+      .container .row3 .main3 .content3 .qr1 .log2 {
+        margin-top: 10px;
+      }
+
+      .container .row3 .main3 .content3 .qr1 .log3 {
+        margin-top: 10px;
+      }
+
+      .container .row3 .main3 .content3 .qr1 .log p {
+        font-size: 16px;
+        font-weight: 550;
+        margin-bottom: 0;
+        margin-top: 7px;
+        background-color: #373737;
+        width: 50%;
+        border-radius: 10px;
+      }
+
+      .container .row3 .main3 .content3 .qr1 .log span {
+        font-size: 16px;
+        font-weight: 550;
+      }
+
+      .container .row3 .main3 .content3 .qr1 .log .g0 {
+        width: 30px;
+        height: auto;
+        border-radius: 50%;
+      }
+
+      .container .row3 .main3 .content3 .qr1 .log .g1 {
+        width: 30px;
+        height: auto;
+        border-radius: 50%;
+        margin-right: 5px;
+      }
+
+      .container .row3 .main3 .content3 .qr1 .log .g2 {
+        width: 65px;
+        height: auto;
+        margin-top: -5px;
+        margin-right: 5px;
+      }
+
+      .container .row3 .main3 .content3 .qr1 .gam3 .img3 {
+        width: 100%;
+        height: auto;
+      }
+
+      .container .row3 .main3 .modal .modal-dialog .modal-content .modal-content .gam4 {
+        /* padding: 8%; */
+        padding: 5px;
+        /* background-color: rgb(242, 242, 242); */
+      }
+
+      .container .row3 .main3 .modal .modal-dialog .modal-content .modal-content .gam4 .img3 {
+        /* border: 2px solid rgb(227, 67, 67); */
+        width: 100%;
+      }
+
+      .container .row3 .main3 .modal .modal-dialog .modal-content .modal-content .modal-header .p3 {
+        font-size: 13px;
+        font-weight: 550;
+        margin-bottom: -10px;
+        margin-top: -10px;
+        color: rgb(126, 126, 126);
+      }
+
+      .container .row3 .main3 .modal .modal-dialog .modal-content .modal-content .gam4 .btn-down {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        /* width: 50%; */
+        /* border-radius: 5px; */
+      }
+
+      .container .row3 .main3 .content3 .qr1 .tf {
+        padding: 5px 15px 5px 15px;
+      }
+
+      .container .row3 .main3 .content3 .qr1 .tf .p5 {
+        font-size: 14px;
+        border-left: 1px solid white;
+        background-color: rgb(46, 46, 46);
+        padding: 7px;
+        border-radius: 0 5px 5px 0;
+        margin-bottom: 7px;
+      }
+
+      .container .row3 .main3 .content3 .qr1 .tf .p6 {
+        font-size: 14px;
+        border-left: 1px solid white;
+        background-color: rgb(46, 46, 46);
+        padding: 7px;
+        border-radius: 0 5px 5px 0;
+        margin-bottom: -10px;
+      }
+
+      /* ======= end ======= */
+      .container .row .main .content .ord .span1 {
+        padding-top: 3px;
+        margin-bottom: 1px;
+        line-height: 1.2;
+        font-size: 13px;
+        font-weight: bold;
+        /* color: rgb(63, 63, 63); */
+        color: rgb(16, 60, 94);
+        text-transform: uppercase;
+      }
+
+      .container .row .main .content .ord .span2 {
+        margin-top: -2px;
+        font-size: 12px;
+        font-weight: 550;
+        padding: 3px 3px 3px 3px;
+        /* color: rgb(255, 55, 0); */
+      }
+
+      .container .row .main .content .ord .span2 span {
+        color: rgb(14, 174, 54);
+      }
+
+      .container .row .main .content .ord .now {
+        margin-top: 5px;
+      }
+
+      .container .row .main .content .ord {
+        margin-top: 2px;
+        margin-bottom: -13px;
+        background-color: rgb(250, 243, 243);
+        border-radius: 0 0 12px 12px;
+      }
+
+      .container .row .main .content {
+        text-align: center;
+        /* background-color: rgb(16, 60, 94); */
+        background-color: rgb(255, 55, 0);
+        padding-bottom: 4px;
+        border-radius: 0 0 10px 10px;
+      }
+
+      .container .row .main .content .btn {
+        font-size: 13px;
+        margin-top: -4px;
+        padding: 0;
+        color: white;
+      }
+
+      .container .row .main .content .btn:focus {
+        box-shadow: none;
+      }
+
+      .container .row .main .modal .modal-dialog .modal-content .modal-content {
+        padding: 3px;
+      }
+
+      .container .row .main .modal .modal-dialog .modal-content .modal-content .p {
+        padding: 5px;
+        margin: 0;
+      }
+
+      .container .row .main .modal .modal-dialog .modal-content .modal-content .p1 {
+        margin-bottom: -27px;
+        margin-top: -30px;
+        margin-left: -15px;
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: bold;
+      }
+
+      .container .row .main .modal .modal-dialog .modal-content .modal-content .modal-header .p1-2 {
+        font-size: 10px;
+        margin-top: -15px;
+        margin-right: -15px;
+      }
+
+      .container .row .main .modal .modal-dialog .modal-content .modal-content .mb-1 .gam2 {
+        margin-top: 10px;
+        width: 100px;
+        float: left;
+        margin-right: 10px;
+      }
+
+      .container .row .main .modal .modal-dialog .modal-content .modal-content .mb-1 .gam2 img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        margin-left: 10px;
+      }
+
+      .container .row .main .modal .modal-dialog .modal-content .modal-content .mb-1 label {
+        font-size: 14px;
+        margin-bottom: -2px;
+      }
+
+      .container .row .main .modal .modal-dialog .modal-content .modal-content .mb-1 input {
+        font-size: 14px;
+        margin-bottom: 15px;
+        width: 60%;
+      }
+
+      .container .row .main .modal .modal-dialog .modal-content .modal-content .mb-1 input:focus {
+        box-shadow: none;
+      }
+
+      .container .row .main .modal .modal-dialog .modal-content .modal-content .btn2 {
+        font-size: 14px;
+        width: 60%;
+        margin-bottom: 7px;
+        border-radius: 20px;
+        background-color: rgb(0, 213, 11);
+        border-color: rgb(68, 255, 77);
+      }
+
+      .container .row .main .modal .modal-dialog .modal-content .modal-content .btn3 {
+        font-size: 14px;
+        width: 60%;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        background-color: green;
+        border-color: white;
+        margin-right: -110px;
+      }
+
+      /* ====================== */
+      footer {
+        background-color: rgb(52, 52, 52);
+        width: 100%;
+        text-align: center;
+        /* position: fixed; */
+        /* bottom: 0; */
+        /* left: 0; */
+        margin-top: 20px;
+        margin-bottom: -10px;
+      }
+
+      footer .txt {
+        color: white;
+        padding: 10px 10px 0 10px;
+        font-size: 14px;
+      }
+
+      footer .sos {
+        margin-bottom: 5px;
+        /* padding-top: 10px; */
+      }
+
+      footer .pfoot {
+        color: white;
+        font-size: 12px;
+        padding-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+      }
+
+      .jud {
+        margin-top: 20px;
+        /* background-color: rgb(16, 60, 94); */
+        /* padding: 6px 6px 2px 6px; */
+        /* border-radius: 15px 0 15px 0; */
+      }
+
+      .jud .verd {
+        width: 30px;
+        height: auto;
+        margin-right: 7px;
+        border-radius: 50%;
+        margin-top: -4px;
+        border: 2px solid rgb(75, 111, 239);
+      }
+
+      .jud h2 {
+        /* color: rgb(0, 0, 0); */
+        /* text-align: center; */
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      footer .sos .i1 {
+        margin-right: 15px;
+        font-size: 26px;
+        color: rgb(35, 137, 255);
+      }
+
+      footer .sos .i2 {
+        margin-right: 12px;
+        font-size: 26px;
+        color: rgb(20, 215, 20);
+      }
+
+      footer .sos .i3 {
+        color: rgb(201, 201, 0);
+        font-size: 24px;
+      }
+    </style>
+    <title>DENI HOSTING</title>
+  </head>
+  <body style="background: black">
+    <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+      <div class="container">
+        <h4 style="margin-top: 5px; color: white; font-weight: bold;">DENI HOSTING</h4><button class="navbar-b b3 active-btn" onclick="location.href='payment.php'" style="font-size: 14px;">List Payment</button>
+      </div>
+    </nav>
+    <div style="background: black" class="container konten active">
+      <div class="row">
+        <div class="main">
+          <div style="background: green" class="content">
+            <center>
+              <div class="gam" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><img class="img" src="https://telegra.ph/file/eb76ac0c63891bf42ec5f.jpg" alt=""></div>
+            </center>
+            <div class="ord" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat">
+              <p class=" span1">GRUP WA VIRAL</p>
+              <p class="span2">Rp <span>10,000</span></p>
+            </div>
+            <div class="now" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><button type="button" class="btn" style="color: white; margin-top: 1px; font-weight: bold;" onclick="location.href='payment.php'">Beli Sekarang</button></div>
+          </div>
+          <div style="background: green" class="content">
+            <center>
+              <div class="gam" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><img class="img" src="https://telegra.ph/file/07db6abe45e36885ccd48.jpg" alt=""></div>
+            </center>
+            <div class="ord" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat">
+              <p class=" span1">WEB DAGET</p>
+              <p class="span2">Rp <span>15,000</span></p>
+            </div>
+            <div class="now" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><button type="button" class="btn" style="color: white; margin-top: 1px; font-weight: bold;" onclick="location.href='payment.php'">Beli Sekarang</button></div>
+          </div>
+          
+          <div style="background: green" class="content">
+            <center>
+              <div class="gam" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><img class="img" src="https://telegra.ph/file/d6eefe4542084f562cbee.jpg" alt=""></div>
+            </center>
+            <div class="ord" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat">
+              <p class=" span1">MEDIAFIRE</p>
+              <p class="span2">Rp <span>10,000</span></p>
+            </div>
+            <div class="now" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><button type="button" class="btn" style="color: white; margin-top: 1px; font-weight: bold;" onclick="location.href='payment.php'">Beli Sekarang</button></div>
+          </div>
+          
+          <div style="background: green" class="content">
+            <center>
+              <div class="gam" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><img class="img" src="https://telegra.ph/file/78353ffa308fdc210591d.jpg" alt=""></div>
+            </center>
+            <div class="ord" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat">
+              <p class=" span1">GRUP V1</p>
+              <p class="span2">Rp <span>10,000</span></p>
+            </div>
+            <div class="now" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><button type="button" class="btn" style="color: white; margin-top: 1px; font-weight: bold;" onclick="location.href='payment.php'">Beli Sekarang</button></div>
+          </div>
+          
+          <div style="background: green" class="content">
+            <center>
+              <div class="gam" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><img class="img" src="https://telegra.ph/file/79e556a0ed86aec426f5f.jpg" alt=""></div>
+            </center>
+            <div class="ord" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat">
+              <p class=" span1">GRUP V2</p>
+              <p class="span2">Rp <span>10.000</span></p>
+            </div>
+            <div class="now" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><button type="button" class="btn" style="color: white; margin-top: 1px; font-weight: bold;" onclick="location.href='payment.php'">Beli Sekarang</button></div>
+          </div>
+          
+          <div style="background: green" class="content">
+            <center>
+              <div class="gam" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><img class="img" src="https://telegra.ph/file/6e617e1ed183aaf557f8b.jpg" alt=""></div>
+            </center>
+            <div class="ord" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat">
+              <p class=" span1">PEMBLOKIRAN FB</p>
+              <p class="span2">Rp <span>10.000</span></p>
+            </div>
+            <div class="now" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><button type="button" class="btn" style="color: white; margin-top: 1px; font-weight: bold;" onclick="location.href='payment.php'">Beli Sekarang</button></div>
+          </div>
+          
+          <div style="background: green" class="content">
+            <center>
+              <div class="gam" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><img class="img" src="https://telegra.ph/file/3903a011cd3b7ebece4ab.jpg" alt=""></div>
+            </center>
+            <div class="ord" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat">
+              <p class=" span1">CODASHOP FF</p>
+              <p class="span2">Rp <span>10,000</span></p>
+            </div>
+            <div class="now" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><button type="button" class="btn" style="color: white; margin-top: 1px; font-weight: bold;" onclick="location.href='payment.php'">Beli Sekarang</button></div>
+          </div>
+          
+          <div style="background: green" class="content">
+            <center>
+              <div class="gam" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><img class="img" src="https://telegra.ph/file/b5ac29b620394c74acf69.jpg" alt=""></div>
+            </center>
+            <div class="ord" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat">
+              <p class=" span1">BAGI² SKIN</p>
+              <p class="span2">Rp <span>10,000</span></p>
+            </div>
+            <div class="now" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><button type="button" class="btn" style="color: white; margin-top: 1px; font-weight: bold;" onclick="location.href='payment.php'">Beli Sekarang</button></div>
+          </div>
+          
+          <div style="background: green" class="content">
+            <center>
+              <div class="gam" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><img class="img" src="https://telegra.ph/file/0c215d42e6b905a50c229.jpg" alt=""></div>
+            </center>
+            <div class="ord" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat">
+              <p class=" span1">MC LAREN</p>
+              <p class="span2">Rp <span>10,000</span></p>
+            </div>
+            <div class="now" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><button type="button" class="btn" style="color: white; margin-top: 1px; font-weight: bold;" onclick="location.href='payment.php'">Beli Sekarang</button></div>
+          </div>
+          
+                    <div style="background: green" class="content">
+            <center>
+              <div class="gam" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><img class="img" src="https://telegra.ph/file/10d00b6845c727d84e566.jpg" alt=""></div>
+            </center>
+            <div class="ord" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat">
+              <p class=" span1">LIVE HOT</p>
+              <p class="span2">Rp <span>10,000</span></p>
+            </div>
+            <div class="now" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><button type="button" class="btn" style="color: white; margin-top: 1px; font-weight: bold;" onclick="location.href='payment.php'">Beli Sekarang</button></div>
+            </div>
+          
+          <div style="background: green" class="content">
+            <center>
+              <div class="gam" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><img class="img" src="https://i.postimg.cc/J4d2xNFR/IMG-20240311-WA0008.jpg" alt=""></div>
+            </center>
+            <div class="ord" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat">
+              <p class=" span1">cPanel Mini-Unli</p>
+              <p class="span2">Rp <span>10,000-30,000</span></p>
+            </div>
+            <div class="now" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><button type="button" class="btn" style="color: white; margin-top: 1px; font-weight: bold;" onclick="location.href='payment.php'">Beli Sekarang</button></div>
+          </div>
+          
+          <div style="background: green" class="content">
+            <center>
+              <div class="gam" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><img class="img" src="https://i.postimg.cc/T1kfCKzB/IMG-20240311-WA0010.jpg" alt=""></div>
+            </center>
+            <div class="ord" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat">
+              <p class=" span1">WHM MINI-UNLI</p>
+              <p class="span2">Rp <span>35,000-65,000</span></p>
+            </div>
+            <div class="now" data-bs-toggle="modal" data-bs-target="#data40" data-bs-whatever="@fat"><button type="button" class="btn" style="color: white; margin-top: 1px; font-weight: bold;" onclick="location.href='payment.php'">Beli Sekarang</button></div>
+          </div>
+          
+        </div>
+      </div>
+      <footer style="margin-top: 100">
+        <p class="pfoot">&copy; DENI HOSTING</p>
+      </footer>
+      <script src="https://kit.fontawesome.com/08380760ee.js" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
